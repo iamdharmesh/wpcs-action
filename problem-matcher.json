@@ -13,8 +13,8 @@
           "line": 1,
           "column": 2,
           "severity": 3,
-          "message": 4,
-          "code": 5,
+          "message": 5,
+          "code": 4,
           "loop": true
         }
       ]
