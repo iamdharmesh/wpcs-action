@@ -24,11 +24,11 @@ phpcs -i
 if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]; then
     echo "Check for warnings disabled"
 
-    phpcs -n --report=checkstyle --standard=${INPUT_STANDARD} --extensions=php --ignore=node_modules,vendor ${INPUT_PATHS}
+    phpcs -s -n --report=checkstyle --standard=${INPUT_STANDARD} --extensions=php --ignore=node_modules,vendor ${INPUT_PATHS}
 else
     echo "Check for warnings enabled"
 
-    phpcs --report=checkstyle --standard=${INPUT_STANDARD} --ignore=node_modules,vendor --extensions=php ${INPUT_PATHS}
+    phpcs -s --report=checkstyle --standard=${INPUT_STANDARD} --ignore=node_modules,vendor --extensions=php ${INPUT_PATHS}
 fi
 
 status=$?
