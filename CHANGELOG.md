@@ -5,6 +5,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.3] - 2022-04-12
+### Fixed
+- Wrong branch used in examples.
+- Docs: Update supported standards.
+
+## [1.3.2] - 2021-07-13
+### Fixed
+- VIPCS detection issue.
+
 ## [1.3.1] - 2021-06-29
 ### Added
 - Detect local phpcs config. This is disabled by default. Enable it by setting `use_local_config` to 'true'.
@@ -21,3 +30,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - `phpcs_bin_path` and `installed_paths` options.
+
+[Unreleased]: https://github.com/10up/wpcs-action/compare/stable...develop
+[1.3.3]: https://github.com/10up/wpcs-action/compare/v1.3.2...v1.3.3
+[1.3.2]: https://github.com/10up/wpcs-action/compare/v1.3.1...v1.3.2
+[1.3.1]: https://github.com/10up/wpcs-action/compare/v1.3.0...v1.3.1
+[1.3.0]: https://github.com/10up/wpcs-action/compare/v1.2.0...v1.3.0

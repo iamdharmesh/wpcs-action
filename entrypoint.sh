@@ -4,7 +4,7 @@ cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
 git clone -b master https://github.com/WordPress/WordPress-Coding-Standards.git ~/wpcs
 
-if [ "${INPUT_STANDARD_REPO}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD_REPO}" = "WordPressVIPMinimum" ]; then
+if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "WordPressVIPMinimum" ]; then
     echo "Setting up VIPCS"
     git clone https://github.com/Automattic/VIP-Coding-Standards ${HOME}/vipcs
     git clone https://github.com/sirbrillig/phpcs-variable-analysis ${HOME}/variable-analysis
