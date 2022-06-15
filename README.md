@@ -55,6 +55,7 @@ Available options (with default value):
             repo_branch: 'master' # Branch of Standard repository
             phpcs_bin_path: 'phpcs' # Custom PHPCS bin path
             use_local_config: 'false' # Use local config if available
+            extra_args: '' # Extra arguments passing to the command
 ```
 
 ## Examples
@@ -76,6 +77,30 @@ jobs:
           uses: 10up/wpcs-action@stable
           with:
             standard: 'WordPress-VIP-Go'
+```
+### Display the linting result in the GitHub Actions summary
+
+```yaml
+name: WPCS check
+
+on: pull_request
+
+jobs:
+  phpcs:
+      name: VIPCS
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: VIPCS check
+          uses: 10up/wpcs-action@stable
+          with:
+            standard: 'WordPress-VIP-Go'
+            extra_args: '--report-json=./phpcs.json'
+        - name: Update summary
+          run: |
+            npx --yes github:10up/phpcs-json-to-md --path ./phpcs.json --output ./phpcs.md
+            cat phpcs.md >> $GITHUB_STEP_SUMMARY
+          if: always()
 ```
 
 ## Support Level
