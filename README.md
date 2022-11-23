@@ -50,7 +50,7 @@ Available options (with default value):
             enable_warnings: false # Enable checking for warnings (-w)
             paths: '.' # Paths to check, space separated
             excludes: '' # Paths to excludes, space separated
-            standard: 'WordPress' # Standard to use. Accepts WordPress|WordPress-Core|WordPress-Docs|WordPress-Extra|WordPress-VIP-Go|WordPressVIPMinimum.
+            standard: 'WordPress' # Standard to use. Accepts WordPress|WordPress-Core|WordPress-Docs|WordPress-Extra|WordPress-VIP-Go|WordPressVIPMinimum|10up-Default.
             standard_repo: '' # Public (git) repository URL of the coding standard
             repo_branch: 'master' # Branch of Standard repository
             phpcs_bin_path: 'phpcs' # Custom PHPCS bin path

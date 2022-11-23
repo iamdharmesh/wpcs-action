@@ -5,8 +5,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2022-11-23
+### Added
+- Support of 10up-Default ruleset (props [@cadic](https://github.com/cadic), [@jeffpaul](https://github.com/jeffpaul), [@peterwilsoncc](https://github.com/peterwilsoncc) via [#21](https://github.com/10up/wpcs-action/pull/21)).
+
+### Fixed
+- Action failure with PHP8 (props [@cadic](https://github.com/cadic), [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter), [@dinhtungdu](https://github.com/dinhtungdu), [@iamdharmesh](https://github.com/iamdharmesh), [@peterwilsoncc](https://github.com/peterwilsoncc) via [#20](https://github.com/10up/wpcs-action/pull/20)).
+
+### Other
+- Add release workflow (props [@dinhtungdu](https://github.com/dinhtungdu), [@jeffpaul](https://github.com/jeffpaul), [@Sidsector9](https://github.com/Sidsector9) via [#17](https://github.com/10up/wpcs-action/pull/17)).
+
 ## [1.3.4] - 2022-06-14
-### Added 
+### Added
 - `EXTRA_ARGS` flag to support custom arguments (props [@dinhtungdu](https://github.com/dinhtungdu) via [#12](https://github.com/10up/wpcs-action/pull/12)).
 
 ## [1.3.3] - 2022-04-12
@@ -36,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `phpcs_bin_path` and `installed_paths` options.
 
 [Unreleased]: https://github.com/10up/wpcs-action/compare/stable...develop
+[1.4.0]: https://github.com/10up/wpcs-action/compare/v1.3.4...v1.4.0
 [1.3.4]: https://github.com/10up/wpcs-action/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/10up/wpcs-action/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/10up/wpcs-action/compare/v1.3.1...v1.3.2
