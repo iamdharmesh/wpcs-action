@@ -52,13 +52,18 @@ else
     HAS_CONFIG=false
 fi
 
+echo "!!Github base ref ${GITHUB_BASE_REF}"
+echo "!!Github SHA ${GITHUB_SHA}"
 git config --global --add safe.directory /github/workspace
-
-echo "Github ref: ${GITHUB_REF}";
-echo "Github sha: ${GITHUB_SHA}";
-echo "Github base ref: ${GITHUB_BASE_REF}";
-
-ls -la
+#git status
+#git branch -r
+REMOTE=${git remote};
+echo "Git remote: ${REMOTE}"
+echo "Git remote: ${REMOTE}"
+echo "Git remote: ${REMOTE}"
+echo "git pull ${REMOTE} ${GITHUB_BASE_REF}"
+git pull $REMOTE $GITHUB_BASE_REF
+git diff --name-only --diff-filter=d $GITHUB_BASE_REF..$GITHUB_SHA
 
 if [ "${INPUT_CHANGED_FILES}" = true ] ; then
     echo "Only check changed files"
