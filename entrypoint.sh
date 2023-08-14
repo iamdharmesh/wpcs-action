@@ -12,7 +12,6 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
     git clone https://github.com/10up/phpcs-composer ${HOME}/10up
-    git clone https://github.com/olivertappin/phpcs-diff ${HOME}/10up
     git clone https://github.com/PHPCompatibility/PHPCompatibilityWP ${HOME}/phpcompatwp
     git clone https://github.com/PHPCompatibility/PHPCompatibility ${HOME}/phpcompat
     git clone https://github.com/PHPCompatibility/PHPCompatibilityParagonie ${HOME}/phpcompat-paragonie
@@ -27,6 +26,9 @@ else
     git clone -b ${INPUT_REPO_BRANCH} ${INPUT_STANDARD_REPO} ${HOME}/cs
     ${INPUT_PHPCS_BIN_PATH} --config-set installed_paths "${HOME}/wpcs,${HOME}/cs"
 fi
+
+git clone https://github.com/olivertappin/phpcs-diff.git
+ln -s phpcs-diff/bin/phpcs-diff /usr/bin/phpcs-diff
 
 if [ -z "${INPUT_EXCLUDES}" ]; then
     EXCLUDES="node_modules,vendor"

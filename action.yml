@@ -33,7 +33,7 @@ inputs:
   phpcs_diff_bin_path:
     description: 'PHPCS-Diff bin path'
     required: false
-    default: 'phpcs_diff'
+    default: 'phpcs-diff'
   use_local_config:
     description: 'Use local config if available'
     required: false
