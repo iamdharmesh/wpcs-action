@@ -71,7 +71,7 @@ git checkout $GITHUB_BASE_REF
 git checkout $GITHUB_HEAD_REF
 #git diff --name-only --diff-filter=d $GITHUB_BASE_REF..$GITHUB_HEAD_REF
 
-${INPUT_PHPCS_DIFF_BIN_PATH} $GITHUB_HEAD_REF $GITHUB_BASE_REF -v
+phpcs-diff $GITHUB_HEAD_REF $GITHUB_BASE_REF -v
 
 if [ "${INPUT_CHANGED_FILES}" = true ] ; then
     echo "Only check changed files"
