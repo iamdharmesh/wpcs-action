@@ -52,10 +52,27 @@ else
     HAS_CONFIG=false
 fi
 
-if [ "${HAS_CONFIG}" = true ] && [ "${INPUT_USE_LOCAL_CONFIG}" = "true" ] ; then
-    ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle ${INPUT_EXTRA_ARGS}
+git config --global --add safe.directory /github/workspace
+
+echo "Github ref: ${GITHUB_REF}";
+echo "Github sha: ${GITHUB_SHA}";
+echo "Github base ref: ${GITHUB_BASE_REF}";
+
+ls -la
+
+if [ "${INPUT_CHANGED_FILES}" = true ] ; then
+    echo "Only check changed files"
+    CHANGED_FILES=$(git diff --name-only --diff-filter=d $GITHUB_BASE_REF..3016dc63c771a593fdaf8957483f2e8a450808fb)
 else
-    ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle --standard=${INPUT_STANDARD} --ignore=${EXCLUDES} --extensions=php ${INPUT_PATHS} ${INPUT_EXTRA_ARGS}
+    CHANGED_FILES=""
+fi
+
+echo "${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle --standard=${INPUT_STANDARD} --ignore=${EXCLUDES} --extensions=php ${INPUT_PATHS} ${CHANGED_FILES} ${INPUT_EXTRA_ARGS}";
+
+if [ "${HAS_CONFIG}" = true ] && [ "${INPUT_USE_LOCAL_CONFIG}" = "true" ] ; then
+    ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle ${CHANGED_FILES} ${INPUT_EXTRA_ARGS}
+else
+    ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle --standard=${INPUT_STANDARD} --ignore=${EXCLUDES} --extensions=php ${INPUT_PATHS} ${CHANGED_FILES} ${INPUT_EXTRA_ARGS}
 fi
 
 status=$?
