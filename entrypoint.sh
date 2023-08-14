@@ -61,6 +61,7 @@ REMOTE=${git remote};
 echo "Git remote: ${REMOTE}"
 echo "Git remote: ${REMOTE}"
 echo "Git remote: ${REMOTE}"
+echo "Git remote: ${REMOTE}"
 echo "git pull ${REMOTE} ${GITHUB_BASE_REF}"
 git pull $REMOTE $GITHUB_BASE_REF
 git diff --name-only --diff-filter=d $GITHUB_BASE_REF..$GITHUB_SHA
