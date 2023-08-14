@@ -12,6 +12,7 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
     git clone https://github.com/10up/phpcs-composer ${HOME}/10up
+    git clone https://github.com/olivertappin/phpcs-diff ${HOME}/10up
     git clone https://github.com/PHPCompatibility/PHPCompatibilityWP ${HOME}/phpcompatwp
     git clone https://github.com/PHPCompatibility/PHPCompatibility ${HOME}/phpcompat
     git clone https://github.com/PHPCompatibility/PHPCompatibilityParagonie ${HOME}/phpcompat-paragonie
@@ -66,7 +67,9 @@ git pull $REMOTE $GITHUB_BASE_REF
 git pull $REMOTE $GITHUB_HEAD_REF
 git checkout $GITHUB_BASE_REF
 git checkout $GITHUB_HEAD_REF
-git diff --name-only --diff-filter=d $GITHUB_BASE_REF..$GITHUB_HEAD_REF
+#git diff --name-only --diff-filter=d $GITHUB_BASE_REF..$GITHUB_HEAD_REF
+
+${INPUT_PHPCS_DIFF_BIN_PATH} $GITHUB_HEAD_REF $GITHUB_BASE_REF -v
 
 if [ "${INPUT_CHANGED_FILES}" = true ] ; then
     echo "Only check changed files"
