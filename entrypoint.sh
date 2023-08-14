@@ -57,10 +57,7 @@ echo "!!Github SHA ${GITHUB_SHA}"
 git config --global --add safe.directory /github/workspace
 #git status
 #git branch -r
-REMOTE=${git remote};
-echo "Git remote: ${REMOTE}"
-echo "Git remote: ${REMOTE}"
-echo "Git remote: ${REMOTE}"
+REMOTE=$(git remote);
 echo "Git remote: ${REMOTE}"
 echo "git pull ${REMOTE} ${GITHUB_BASE_REF}"
 git pull $REMOTE $GITHUB_BASE_REF
