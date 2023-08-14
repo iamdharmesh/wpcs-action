@@ -28,6 +28,8 @@ else
 fi
 
 git clone https://github.com/olivertappin/phpcs-diff.git ~/phpcs-diff
+cd ~/phpcs-diff
+composer install;
 ln -s ~/phpcs-diff/bin/phpcs-diff /usr/bin/phpcs-diff
 
 if [ -z "${INPUT_EXCLUDES}" ]; then
