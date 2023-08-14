@@ -28,8 +28,11 @@ else
 fi
 
 git clone https://github.com/olivertappin/phpcs-diff.git ~/phpcs-diff
-~/phpcs-diff/composer install
+cd ~/phpcs-diff
+composer install
 ln -s ~/phpcs-diff/bin/phpcs-diff /usr/bin/phpcs-diff
+
+cd /github/workflow
 
 if [ -z "${INPUT_EXCLUDES}" ]; then
     EXCLUDES="node_modules,vendor"
