@@ -52,20 +52,20 @@ else
     HAS_CONFIG=false
 fi
 
-echo "!!Github base ref ${GITHUB_BASE_REF}"
-echo "!!Github head ref ${GITHUB_HEAD_REF}"
-echo "!!Github SHA ${GITHUB_SHA}"
+#echo "!!Github base ref ${GITHUB_BASE_REF}"
+#echo "!!Github head ref ${GITHUB_HEAD_REF}"
+#echo "!!Github SHA ${GITHUB_SHA}"
 git config --global --add safe.directory /github/workspace
 #git status
 #git branch -r
 REMOTE=$(git remote);
-echo "Git remote: ${REMOTE}"
-echo "git pull ${REMOTE} ${GITHUB_BASE_REF}"
-echo "git pull ${REMOTE} ${GITHUB_HEAD_REF}"
+#echo "Git remote: ${REMOTE}"
+#echo "git pull ${REMOTE} ${GITHUB_BASE_REF}"
+#echo "git pull ${REMOTE} ${GITHUB_HEAD_REF}"
 git pull $REMOTE $GITHUB_BASE_REF
 git pull $REMOTE $GITHUB_HEAD_REF
 git checkout $GITHUB_BASE_REF
-git checkout GITHUB_HEAD_REF
+git checkout $GITHUB_HEAD_REF
 git diff --name-only --diff-filter=d $GITHUB_BASE_REF..$GITHUB_HEAD_REF
 
 if [ "${INPUT_CHANGED_FILES}" = true ] ; then
@@ -74,8 +74,6 @@ if [ "${INPUT_CHANGED_FILES}" = true ] ; then
 else
     CHANGED_FILES=""
 fi
-
-echo "${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle --standard=${INPUT_STANDARD} --ignore=${EXCLUDES} --extensions=php ${INPUT_PATHS} ${CHANGED_FILES} ${INPUT_EXTRA_ARGS}";
 
 if [ "${HAS_CONFIG}" = true ] && [ "${INPUT_USE_LOCAL_CONFIG}" = "true" ] ; then
     ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle ${CHANGED_FILES} ${INPUT_EXTRA_ARGS}
