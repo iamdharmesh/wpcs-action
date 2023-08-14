@@ -27,8 +27,8 @@ else
     ${INPUT_PHPCS_BIN_PATH} --config-set installed_paths "${HOME}/wpcs,${HOME}/cs"
 fi
 
-git clone https://github.com/olivertappin/phpcs-diff.git
-ln -s phpcs-diff/bin/phpcs-diff /usr/bin/phpcs-diff
+git clone https://github.com/olivertappin/phpcs-diff.git ~/phpcs-diff
+ln -s ~/phpcs-diff/bin/phpcs-diff /usr/bin/phpcs-diff
 
 if [ -z "${INPUT_EXCLUDES}" ]; then
     EXCLUDES="node_modules,vendor"
