@@ -64,7 +64,7 @@ echo "git pull ${REMOTE} ${GITHUB_BASE_REF}"
 echo "git pull ${REMOTE} ${GITHUB_HEAD_REF}"
 git pull $REMOTE $GITHUB_BASE_REF
 git pull $REMOTE $GITHUB_HEAD_REF
-git checkout $REMOTE $GITHUB_BASE_REF
+git checkout $GITHUB_BASE_REF
 git diff --name-only --diff-filter=d $GITHUB_BASE_REF..$GITHUB_HEAD_REF
 
 if [ "${INPUT_CHANGED_FILES}" = true ] ; then
