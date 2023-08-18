@@ -6,8 +6,7 @@
       "pattern": [
         {
           "regexp": "^<file name=\"(?:\\/github\\/workspace\\/)?(.*)\">$",
-          "file": 1,
-          "fromPath": 1
+          "file": 1
         },
         {
           "regexp": "<error line=\"(\\d*)\" column=\"(\\d*)\" severity=\"(error|warning)\" message=\"(.*)\" source=\"(.*)(\"\\/>+)$",
