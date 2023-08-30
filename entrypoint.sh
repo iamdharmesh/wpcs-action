@@ -2,7 +2,7 @@
 
 cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
-git clone -b master https://github.com/WordPress/WordPress-Coding-Standards.git ~/wpcs
+git clone --depth 1 -b 2.3.0 https://github.com/WordPress/WordPress-Coding-Standards.git ~/wpcs
 
 if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "WordPressVIPMinimum" ]; then
     echo "Setting up VIPCS"
@@ -48,7 +48,7 @@ fi
 # .phpcs.xml, phpcs.xml, .phpcs.xml.dist, phpcs.xml.dist
 if [ -f ".phpcs.xml" ] || [ -f "phpcs.xml" ] || [ -f ".phpcs.xml.dist" ] || [ -f "phpcs.xml.dist" ]; then
     HAS_CONFIG=true
-else 
+else
     HAS_CONFIG=false
 fi
 

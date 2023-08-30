@@ -5,7 +5,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.5.0] - 2023-05-31
+## [1.6.0] - 2023-08-30
+### Added
+- New example for excluding specific rules in the README file (props [@kmgalanakis](https://github.com/kmgalanakis), [@iamdharmesh](https://github.com/iamdharmesh) via [#32](https://github.com/10up/wpcs-action/pull/32)).
+
+### Changed
+- Update docs (props [@jeffpaul](https://github.com/jeffpaul), [@faisal-alvi](https://github.com/faisal-alvi) via [#30](https://github.com/10up/wpcs-action/pull/30)).
+
+### Fixed
+- Clone the 2.3.0 tagged branch of the WordPress Coding Standards (props [@dkotter](https://github.com/dkotter), [@iamdharmesh](https://github.com/iamdharmesh), [@GaryJones](https://github.com/GaryJones) via [#34](https://github.com/10up/wpcs-action/pull/34)).
+
+## [1.5.0] - 2023-06-12
 ### Added
 - Include WP VIP coding standards with 10up-Default sniffs (props [@peterwilsoncc](https://github.com/peterwilsoncc), [@cadic](https://github.com/cadic), [@dkotter](https://github.com/dkotter), [@jeffpaul](https://github.com/jeffpaul) via [#25](https://github.com/10up/wpcs-action/pull/25)).
 
@@ -53,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `phpcs_bin_path` and `installed_paths` options.
 
 [Unreleased]: https://github.com/10up/wpcs-action/compare/stable...develop
+[1.6.0]: https://github.com/10up/wpcs-action/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/10up/wpcs-action/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/10up/wpcs-action/compare/v1.3.4...v1.4.0
 [1.3.4]: https://github.com/10up/wpcs-action/compare/v1.3.3...v1.3.4

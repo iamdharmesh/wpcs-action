@@ -1,6 +1,6 @@
-name: 'PHP_CodeSniffer Check with Annotations'
-description: 'PHPCS checker with auto annotations out of the box'
-author: 'Ilya Chekalsky'
+name: 'PHPCS Check with Annotations'
+description: 'PHPCS checker with automatic annotations and no additional dependencies.'
+author: '10up'
 inputs:
   enable_warnings:
     description: 'Enable checking for warnings (-w)'

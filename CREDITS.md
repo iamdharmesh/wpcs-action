@@ -8,9 +8,11 @@ The following individuals are responsible for curating the list of issues, respo
 
 ## Contributors
 
+Note that this project was forked from [Ilya Chekalsky's](https://github.com/chekalsky) [PHP CodeSniffer GitHub Action](https://github.com/chekalsky/phpcs-action).
+
 Thank you to all the people who have already contributed to this repository via bug reports, code, design, ideas, project management, translation, testing, etc.
 
-[Tung Du (@dinhtungdu)](https://github.com/dinhtungdu), [Daniele Scasciafratte (@Mte90)](https://github.com/Mte90), [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul), [Vikram  (@vikrampm1)](https://github.com/vikrampm1), [Max Lyuchin (@cadic)](https://github.com/cadic), [Peter Wilson (@peterwilsoncc)](https://github.com/peterwilsoncc), [Siddharth Thevaril (@Sidsector9)](https://github.com/Sidsector9), [Dharmesh Patel (@iamdharmesh)](https://github.com/iamdharmesh), [David Armstrong (@B-Interactive)](https://github.com/B-Interactive).
+[Tung Du (@dinhtungdu)](https://github.com/dinhtungdu), [Daniele Scasciafratte (@Mte90)](https://github.com/Mte90), [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul), [Vikram Moparthy (@vikrampm1)](https://github.com/vikrampm1), [Max Lyuchin (@cadic)](https://github.com/cadic), [Peter Wilson (@peterwilsoncc)](https://github.com/peterwilsoncc), [Siddharth Thevaril (@Sidsector9)](https://github.com/Sidsector9), [Dharmesh Patel (@iamdharmesh)](https://github.com/iamdharmesh), [Darin Kotter (@dkotter)](https://github.com/dkotter), [David Armstrong (@B-Interactive)](https://github.com/B-Interactive), [Konstantinos Galanakis (@kmgalanakis)](https://github.com/kmgalanakis), [Faisal Alvi (@faisal-alvi)](https://github.com/faisal-alvi), [Gary Jones (@GaryJones)](https://github.com/GaryJones).
 
 ## Libraries
 
