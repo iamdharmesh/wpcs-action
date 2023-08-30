@@ -5,6 +5,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.1] - 2023-08-30
+### Fixed
+- Clone the 2.3.3 tagged release of the VIPCS package to ensure running VIP scans works (props [@dkotter](https://github.com/dkotter), [@TylerB24890](https://github.com/TylerB24890) via [#37](https://github.com/10up/wpcs-action/pull/37)).
+
 ## [1.6.0] - 2023-08-30
 ### Added
 - New example for excluding specific rules in the README file (props [@kmgalanakis](https://github.com/kmgalanakis), [@iamdharmesh](https://github.com/iamdharmesh) via [#32](https://github.com/10up/wpcs-action/pull/32)).
@@ -63,6 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `phpcs_bin_path` and `installed_paths` options.
 
 [Unreleased]: https://github.com/10up/wpcs-action/compare/stable...develop
+[1.6.1]: https://github.com/10up/wpcs-action/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/10up/wpcs-action/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/10up/wpcs-action/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/10up/wpcs-action/compare/v1.3.4...v1.4.0

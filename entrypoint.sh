@@ -6,7 +6,7 @@ git clone --depth 1 -b 2.3.0 https://github.com/WordPress/WordPress-Coding-Stand
 
 if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "WordPressVIPMinimum" ]; then
     echo "Setting up VIPCS"
-    git clone https://github.com/Automattic/VIP-Coding-Standards ${HOME}/vipcs
+    git clone --depth 1 -b 2.3.3 https://github.com/Automattic/VIP-Coding-Standards.git ${HOME}/vipcs
     git clone https://github.com/sirbrillig/phpcs-variable-analysis ${HOME}/variable-analysis
     ${INPUT_PHPCS_BIN_PATH} --config-set installed_paths "${HOME}/wpcs,${HOME}/vipcs,${HOME}/variable-analysis"
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
