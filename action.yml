@@ -42,8 +42,8 @@ inputs:
     description: 'Passing extra arguments to the phpcs command'
     required: false
     default: ''
-  changed_files:
-    description: 'Check only changed files'
+  only_changed_lines:
+    description: 'Report errors only for changed lines'
     required: false
     default: ''
 runs:
