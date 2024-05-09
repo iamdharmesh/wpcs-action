@@ -38,6 +38,14 @@ inputs:
     description: 'Passing extra arguments to the phpcs command'
     required: false
     default: ''
+  only_changed_files:
+    description: 'Run linter on changed files only'
+    required: false
+    default: ''
+  only_changed_lines:
+    description: 'Report errors only for changed lines'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
