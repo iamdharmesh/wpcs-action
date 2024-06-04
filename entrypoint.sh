@@ -118,7 +118,7 @@ elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
 
     decide_all_files_or_changed "${HOME}/wpcs,${HOME}/10up/10up-Default,${HOME}/phpcompatwp/PHPCompatibilityWP,${HOME}/phpcompat/PHPCompatibility,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieSodiumCompat,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieRandomCompat,${HOME}/phpcsutils/PHPCSUtils,${HOME}/vipcs,${HOME}/variable-analysis"
 elif [ -z "${INPUT_STANDARD_REPO}" ] || [ "${INPUT_STANDARD_REPO}" = "false" ]; then
-  decide_all_files_or_changed "~/wpcs"
+  decide_all_files_or_changed "${HOME}/wpcs"
 else
   echo "Standard repository: ${INPUT_STANDARD_REPO}"
   git clone -b ${INPUT_REPO_BRANCH} ${INPUT_STANDARD_REPO} ${HOME}/cs
