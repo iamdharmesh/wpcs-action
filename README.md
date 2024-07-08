@@ -58,6 +58,8 @@ Available options (with default value):
             phpcs_bin_path: 'phpcs' # Custom PHPCS bin path
             use_local_config: 'false' # Use local config if available
             extra_args: '' # Extra arguments passing to the command
+            only_changed_files: '' # Run the linter only on the changed files. Accepts true|false
+            only_changed_lines: '' # Run the linter only on the changed lines. Accepts true|false
 ```
 
 ## Examples
@@ -136,6 +138,28 @@ jobs:
         with:
           standard: 'WordPress' # Standard to use. Accepts WordPress|WordPress-Core|WordPress-Docs|WordPress-Extra|WordPress-VIP-Go|WordPressVIPMinimum|10up-Default.
           use_local_config: 'true'
+```
+### Run linter on changed lines
+
+```yaml
+name: WPCS check
+
+on: pull_request
+
+jobs:
+  phpcs:
+    name: WPCS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # This is very important. Without this the linting of only the changed lines will not work. 
+      - name: WPCS check
+        uses: 10up/wpcs-action@stable
+        with:
+          standard: 10up-Default
+          enable_warnings: true
+          only_changed_lines: true
 ```
 
 ## Support Level
