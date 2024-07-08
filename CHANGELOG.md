@@ -5,6 +5,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2024-07-01
+### Added
+- Arguments to allow the action to run the linter only on changed files or on changed lines (props [@kmgalanakis](https://github.com/kmgalanakis), [@faisal-alvi](https://github.com/faisal-alvi), [@fabiankaegy](https://github.com/fabiankaegy), [@dkotter](https://github.com/dkotter) via [#45](https://github.com/10up/wpcs-action/pull/45)).
+
+### Fixed
+- Using "WordPress" standards by installing from proper directory (props [@kmgalanakis](https://github.com/kmgalanakis), [@faisal-alvi](https://github.com/faisal-alvi), [@fabiankaegy](https://github.com/fabiankaegy), [@dkotter](https://github.com/dkotter) via [#47](https://github.com/10up/wpcs-action/pull/47)).
+
+### Developer
+- Replaced [lee-dohm/no-response](https://github.com/lee-dohm/no-response) with [actions/stale](https://github.com/actions/stale) to help with closing no-response/stale issues (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#43](https://github.com/10up/wpcs-action/pull/43)).
+
 ## [1.6.1] - 2023-08-30
 ### Fixed
 - Clone the 2.3.3 tagged release of the VIPCS package to ensure running VIP scans works (props [@dkotter](https://github.com/dkotter), [@TylerB24890](https://github.com/TylerB24890) via [#37](https://github.com/10up/wpcs-action/pull/37)).
@@ -67,6 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `phpcs_bin_path` and `installed_paths` options.
 
 [Unreleased]: https://github.com/10up/wpcs-action/compare/stable...develop
+[1.7.0]: https://github.com/10up/wpcs-action/compare/v1.6.1...v1.7.0
 [1.6.1]: https://github.com/10up/wpcs-action/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/10up/wpcs-action/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/10up/wpcs-action/compare/v1.4.0...v1.5.0
