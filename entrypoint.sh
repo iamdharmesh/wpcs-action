@@ -2,7 +2,7 @@
 
 cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
-git clone --depth 1 -b 3.1.0 https://github.com/WordPress/WordPress-Coding-Standards.git ~/wpcs
+composer global require "dealerdirect/phpcodesniffer-composer-installer:^0.7.1" "wp-coding-standards/wpcs:^3.1.0"
 
 git config --global --add safe.directory $(pwd)
 
@@ -105,7 +105,7 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
     git clone --depth 1 -b 2.3.3 https://github.com/Automattic/VIP-Coding-Standards.git ${HOME}/vipcs
     git clone https://github.com/sirbrillig/phpcs-variable-analysis ${HOME}/variable-analysis
 
-    decide_all_files_or_changed "${HOME}/wpcs,${HOME}/vipcs,${HOME}/variable-analysis"
+    decide_all_files_or_changed "${HOME}/vipcs,${HOME}/variable-analysis"
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
     git clone https://github.com/10up/phpcs-composer ${HOME}/10up
@@ -116,14 +116,14 @@ elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     git clone https://github.com/Automattic/VIP-Coding-Standards ${HOME}/vipcs
     git clone https://github.com/sirbrillig/phpcs-variable-analysis ${HOME}/variable-analysis
 
-    decide_all_files_or_changed "${HOME}/wpcs,${HOME}/10up/10up-Default,${HOME}/phpcompatwp/PHPCompatibilityWP,${HOME}/phpcompat/PHPCompatibility,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieSodiumCompat,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieRandomCompat,${HOME}/phpcsutils/PHPCSUtils,${HOME}/vipcs,${HOME}/variable-analysis"
+    decide_all_files_or_changed "${HOME}/10up/10up-Default,${HOME}/phpcompatwp/PHPCompatibilityWP,${HOME}/phpcompat/PHPCompatibility,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieSodiumCompat,${HOME}/phpcompat-paragonie/PHPCompatibilityParagonieRandomCompat,${HOME}/phpcsutils/PHPCSUtils,${HOME}/vipcs,${HOME}/variable-analysis"
 elif [ -z "${INPUT_STANDARD_REPO}" ] || [ "${INPUT_STANDARD_REPO}" = "false" ]; then
-  decide_all_files_or_changed "${HOME}/wpcs"
+  decide_all_files_or_changed "$(composer config home)/vendor/wp-coding-standards/wpcs"
 else
   echo "Standard repository: ${INPUT_STANDARD_REPO}"
   git clone -b ${INPUT_REPO_BRANCH} ${INPUT_STANDARD_REPO} ${HOME}/cs
 
-  decide_all_files_or_changed "${HOME}/wpcs,${HOME}/cs"
+  decide_all_files_or_changed "$(composer config home)/vendor/wp-coding-standards/wpcs,${HOME}/cs"
 fi
 
 if [ -z "${INPUT_EXCLUDES}" ]; then
