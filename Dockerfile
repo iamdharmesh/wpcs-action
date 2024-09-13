@@ -11,6 +11,8 @@ RUN apk update && \
     apk add git && \
     apk add composer
 
-RUN apk add php8-tokenizer php8-xmlreader
+RUN apk --no-cache update && \
+    apk upgrade && \
+    apk add --no-cache php8-tokenizer php8-xmlreader php8-simplexml
 
 ENTRYPOINT ["/action/entrypoint.sh"]
