@@ -9,8 +9,8 @@ RUN chmod +x /action/entrypoint.sh
 RUN apk update && \
     apk upgrade && \
     apk add git && \
-    apk add composer && \
-    apk add php7-tokenizer && \
-    apk add php7-simplexml
+    apk add composer
+
+RUN apk add php7-tokenizer
 
 ENTRYPOINT ["/action/entrypoint.sh"]
