@@ -11,6 +11,6 @@ RUN apk update && \
     apk add git && \
     apk add composer
 
-RUN apk add php7-tokenizer
+RUN apk add php8-tokenizer
 
 ENTRYPOINT ["/action/entrypoint.sh"]
