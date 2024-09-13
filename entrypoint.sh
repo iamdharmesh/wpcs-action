@@ -9,6 +9,7 @@ if ! [ -x "$(command -v composer)" ]; then
   mv composer.phar /usr/local/bin/composer
 fi
 
+composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 composer global require "dealerdirect/phpcodesniffer-composer-installer:^0.7.1" "wp-coding-standards/wpcs:^3.1.0"
 
 git config --global --add safe.directory $(pwd)
