@@ -13,6 +13,6 @@ RUN apk update && \
 
 RUN apk --no-cache update && \
     apk upgrade && \
-    apk add --no-cache php8-tokenizer php8-xmlreader php8-simplexml php-xml
+    apk add --no-cache php-tokenizer php-xmlreader php-simplexml php-xml php-xmlwriter
 
 ENTRYPOINT ["/action/entrypoint.sh"]
