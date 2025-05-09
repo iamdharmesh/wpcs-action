@@ -22,6 +22,9 @@ RUN set -eux \
 	&& mv /phpcs.phar /usr/bin/phpcs \
 	&& phpcs --version
 
+ENV WORKDIR /data
+WORKDIR /data
+
 COPY entrypoint.sh \
      problem-matcher.json \
      /action/
