@@ -23,13 +23,15 @@ RUN set -eux \
 	&& mv /phpcs.phar /usr/bin/phpcs \
 	&& phpcs --version
 
-# Install PHP Composer and Default standards
+# Install PHP Composer
 RUN set -eux \
 	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
-	&& composer --version \
-	&& composer config --global --no-plugins allow-plugins.squizlabs/php_codesniffer-composer-installer true \
-	&& composer global require --dev wp-coding-standards/wpcs:"^3.1.0" \
-	&& composer global require --dev 10up/phpcs-composer:"^9.3"
+	&& composer --version
+
+# Install Default PHPCS standards
+RUN composer config --global --no-plugins allow-plugins.squizlabs/php_codesniffer-composer-installer true
+RUN composer global require --dev wp-coding-standards/wpcs:"^3.1.0"
+RUN composer global require --dev 10up/phpcs-composer:"^9.3"
 
 COPY entrypoint.sh \
      problem-matcher.json \
