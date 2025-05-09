@@ -1,4 +1,4 @@
-FROM php:8.0-cli-apline
+FROM php:8.0-apline
 
 # Install build dependencies
 RUN set -eux \
