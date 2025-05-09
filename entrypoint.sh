@@ -11,7 +11,7 @@ echo "$(pwd)"
 git config --global --add safe.directory $(pwd)
 echo "$(pwd)"
 
-cd "$DIR"
+cd "$GITHUB_WORKSPACE"
 
 diff_lines() {
   path=""
