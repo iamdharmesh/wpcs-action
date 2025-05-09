@@ -10,8 +10,8 @@ if ! [ -x "$(command -v composer)" ]; then
 fi
 
 composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-composer global require --dev phpcsstandards/phpcsextra:"^1.2.0"
-composer global require --dev wp-coding-standards/wpcs:"^3.0.0" --update-with-dependencies
+# composer global require --dev phpcsstandards/phpcsextra:"^1.2.0"
+composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
 
 git config --global --add safe.directory $(pwd)
 
@@ -114,7 +114,7 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
     git clone --depth 1 -b 2.3.3 https://github.com/Automattic/VIP-Coding-Standards.git ${HOME}/vipcs
     git clone https://github.com/sirbrillig/phpcs-variable-analysis ${HOME}/variable-analysis
 
-    decide_all_files_or_changed "$(composer config home)/vendor/wp-coding-standards/wpcs,${HOME}/vipcs,${HOME}/variable-analysis,${HOME}/phpcsutils/PHPCSUtils"
+    decide_all_files_or_changed "$(composer config home)/vendor/wp-coding-standards/wpcs,${HOME}/vipcs,${HOME}/variable-analysis,$(composer config home)/vendor/phpcsstandards/phpcsutils,$(composer config home)/vendor/phpcsstandards/phpcsextra"
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
     git clone https://github.com/10up/phpcs-composer ${HOME}/10up
