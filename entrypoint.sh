@@ -10,8 +10,8 @@ if ! [ -x "$(command -v composer)" ]; then
 fi
 
 composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-composer global require --dev phpcsstandards/phpcsextra:"^1.2.0"
-composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
+# composer global require --dev phpcsstandards/phpcsextra:"^1.2.0"
+composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-all-dependencies
 
 git config --global --add safe.directory $(pwd)
 
