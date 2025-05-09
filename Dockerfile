@@ -1,4 +1,4 @@
-FROM php:8.0-alpine
+FROM cytopia/phpcs:latest-php7.4
 
 COPY entrypoint.sh \
      problem-matcher.json \
