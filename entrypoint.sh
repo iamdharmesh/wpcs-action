@@ -2,16 +2,10 @@
 
 cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
-DIR="$(pwd)"
-echo "$DIR"
-composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
+# composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+# composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
 
-echo "$(pwd)"
 git config --global --add safe.directory $(pwd)
-echo "$(pwd)"
-
-cd "$GITHUB_WORKSPACE"
 
 diff_lines() {
   path=""
@@ -110,18 +104,18 @@ COMPOSER_HOME="$(composer config home)/vendor"
 WPCS_PATH="$(composer config home)/vendor/wp-coding-standards/wpcs,$(composer config home)/vendor/phpcsstandards/phpcsutils,$(composer config home)/vendor/phpcsstandards/phpcsextra"
 if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "WordPressVIPMinimum" ]; then
     echo "Setting up VIPCS"
-    composer global require --dev automattic/vipwpcs:"*"
-    composer global require --dev sirbrillig/phpcs-variable-analysis:"*"
+    # composer global require --dev automattic/vipwpcs:"*"
+    # composer global require --dev sirbrillig/phpcs-variable-analysis:"*"
     
     decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis"
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
-    composer global require --dev 10up/phpcs-composer:"^3.0"
-    composer global require --dev phpcompatibility/php-compatibility:"*"
-    composer global require --dev phpcompatibility/phpcompatibility-wp:"*"
-    composer global require --dev phpcompatibility/phpcompatibility-paragonie:"*"
-    composer global require --dev automattic/vipwpcs:"*"
-    composer global require --dev sirbrillig/phpcs-variable-analysis:"*"
+    # composer global require --dev 10up/phpcs-composer:"^3.0"
+    # composer global require --dev phpcompatibility/php-compatibility:"*"
+    # composer global require --dev phpcompatibility/phpcompatibility-wp:"*"
+    # composer global require --dev phpcompatibility/phpcompatibility-paragonie:"*"
+    # composer global require --dev automattic/vipwpcs:"*"
+    # composer global require --dev sirbrillig/phpcs-variable-analysis:"*"
 
     decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/10up/phpcs-composer,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-wp,${COMPOSER_HOME}/phpcompatibility/php-compatibility,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-paragonie,${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis"
 
