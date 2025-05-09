@@ -26,7 +26,9 @@ RUN set -eux \
 # Install PHP Composer and Default standards
 RUN set -eux \
 	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
-	&& composer --version \
+	&& composer --version
+	
+RUN set -eux \
 	&& composer config --global --no-plugins allow-plugins.squizlabs/php_codesniffer-composer-installer true \
 	&& cmposer global require --dev wp-coding-standards/wpcs:"^3.1.0" \
 	&& composer global require --dev 10up/phpcs-composer:"^9.3"
