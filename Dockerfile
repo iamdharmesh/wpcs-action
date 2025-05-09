@@ -21,7 +21,6 @@ RUN set -eux \
 	&& curl -sS -L https://github.com/squizlabs/PHP_CodeSniffer/releases/download/${VERSION}/phpcs.phar -o /phpcs.phar \
 	&& chmod +x /phpcs.phar \
 	&& mv /phpcs.phar /usr/bin/phpcs \
-	\
 	&& phpcs --version
 
 COPY entrypoint.sh \
