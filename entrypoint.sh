@@ -4,6 +4,8 @@ cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
 git config --global --add safe.directory $(pwd)
 
+ls -la
+
 composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
 
