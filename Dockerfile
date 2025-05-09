@@ -1,4 +1,4 @@
-FROM composer:latest
+FROM php:8.0-alpine
 
 COPY entrypoint.sh \
      problem-matcher.json \
