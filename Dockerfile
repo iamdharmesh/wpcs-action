@@ -12,13 +12,12 @@ RUN set -eux \
 		php8-xmlreader \
 		php8-xmlwriter \
 		php-xml \
-	&& git clone https://github.com/squizlabs/PHP_CodeSniffer
+	&& git clone https://github.com/PHPCSStandards/PHP_CodeSniffer
 
 RUN set -eux \
 	&& cd PHP_CodeSniffer \
 	&& VERSION="$( git describe --abbrev=0 --tags )" \
-	&& echo "Version: ${VERSION}" \
-	&& curl -sS -L https://github.com/squizlabs/PHP_CodeSniffer/releases/download/${VERSION}/phpcs.phar -o /phpcs.phar \
+	&& curl -sS -L https://github.com/PHPCSStandards/PHP_CodeSniffer/releases/download/${VERSION}/phpcs.phar -o /phpcs.phar \
 	&& chmod +x /phpcs.phar \
 	&& mv /phpcs.phar /usr/bin/phpcs \
 	&& phpcs --version
