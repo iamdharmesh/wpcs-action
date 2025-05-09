@@ -8,6 +8,6 @@ RUN chmod +x /action/entrypoint.sh
 
 RUN apk update && \
     apk upgrade && \
-    apk add git composer php8-simplexml php8-tokenizer php8-xmlreader php8-xmlwriter
+    apk add git composer php8-simplexml php8-tokenizer php8-xmlreader php8-xmlwriter php-xml
 
 ENTRYPOINT ["/action/entrypoint.sh"]
