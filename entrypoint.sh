@@ -11,6 +11,8 @@ echo "$(pwd)"
 git config --global --add safe.directory $(pwd)
 echo "$(pwd)"
 
+cd "$DIR"
+
 diff_lines() {
   path=""
   line=""
