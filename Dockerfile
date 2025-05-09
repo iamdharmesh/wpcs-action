@@ -14,6 +14,7 @@ RUN set -eux \
 		php-xml \
 	&& git clone https://github.com/PHPCSStandards/PHP_CodeSniffer
 
+# Install PHP CodeSniffer
 RUN set -eux \
 	&& cd PHP_CodeSniffer \
 	&& VERSION="$( git describe --abbrev=0 --tags )" \
@@ -22,8 +23,10 @@ RUN set -eux \
 	&& mv /phpcs.phar /usr/bin/phpcs \
 	&& phpcs --version
 
-ENV WORKDIR /data
-WORKDIR /data
+# Install PHP Composer
+RUN set -eux \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
+    && composer --version
 
 COPY entrypoint.sh \
      problem-matcher.json \
