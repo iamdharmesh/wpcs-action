@@ -2,17 +2,14 @@
 
 cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
-# Install Composer if not found
-if ! [ -x "$(command -v composer)" ]; then
-  echo 'Composer not found, installing...'
-  curl -sS https://getcomposer.org/installer | php
-  mv composer.phar /usr/local/bin/composer
-fi
-
+DIR="$(pwd)"
+echo "$DIR"
 composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
 
+echo "$(pwd)"
 git config --global --add safe.directory $(pwd)
+echo "$(pwd)"
 
 diff_lines() {
   path=""
