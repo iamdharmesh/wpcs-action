@@ -108,7 +108,7 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
     echo "Setting up VIPCS"
     # composer global require --dev automattic/vipwpcs:"*"
     # composer global require --dev sirbrillig/phpcs-variable-analysis:"*"
-    
+
     decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis"
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
@@ -126,6 +126,8 @@ elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     phpcs -i
 elif [ -z "${INPUT_STANDARD_REPO}" ] || [ "${INPUT_STANDARD_REPO}" = "false" ]; then
   echo "Setting up default WPCS"
+  
+  ls -la
   decide_all_files_or_changed "${WPCS_PATH}"
 else
   echo "Standard repository: ${INPUT_STANDARD_REPO}"
