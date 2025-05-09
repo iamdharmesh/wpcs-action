@@ -17,6 +17,8 @@ composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-de
 
 git config --global --add safe.directory $(pwd)
 
+phpcs --version
+
 diff_lines() {
   path=""
   line=""
