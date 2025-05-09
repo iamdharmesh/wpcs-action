@@ -111,8 +111,8 @@ COMPOSER_HOME="$(composer config home)/vendor"
 WPCS_PATH="$(composer config home)/vendor/wp-coding-standards/wpcs,$(composer config home)/vendor/phpcsstandards/phpcsutils,$(composer config home)/vendor/phpcsstandards/phpcsextra"
 if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "WordPressVIPMinimum" ]; then
     echo "Setting up VIPCS"
-    composer require --dev automattic/vipwpcs -W
-    composer require --dev sirbrillig/phpcs-variable-analysis -W
+    composer require --dev automattic/vipwpcs:"* -W
+    composer require --dev sirbrillig/phpcs-variable-analysis:"* -W
 
     decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}automattic/vipwpcs,${COMPOSER_HOME}sirbrillig/phpcs-variable-analysis"
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
@@ -120,8 +120,8 @@ elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     composer require --dev 10up/phpcs-composer:"^3.0" -W
     composer require --dev phpcompatibility/phpcompatibility-wp:"*" -W
     composer require --dev phpcompatibility/phpcompatibility-paragonie:"*" -W
-    composer require --dev automattic/vipwpcs -W
-    composer require --dev sirbrillig/phpcs-variable-analysis -W
+    composer require --dev automattic/vipwpcs:"* -W
+    composer require --dev sirbrillig/phpcs-variable-analysis:"* -W
 
     decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/10up/phpcs-composer/10up-Default,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-wp/PHPCompatibilityWP,${COMPOSER_HOME}/phpcompatibility/phpcompatibility/PHPCompatibility,${COMPOSER_HOME}phpcompatibility/phpcompatibility-paragonie/PHPCompatibilityParagonieSodiumCompat,${COMPOSER_HOME}phpcompatibility/phpcompatibility-paragonie/PHPCompatibilityParagonieRandomCompat,${COMPOSER_HOME}automattic/vipwpcs,${COMPOSER_HOME}sirbrillig/phpcs-variable-analysis"
 
