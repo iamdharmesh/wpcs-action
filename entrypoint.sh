@@ -111,8 +111,8 @@ COMPOSER_HOME="$(composer config home)/vendor"
 WPCS_PATH="$(composer config home)/vendor/wp-coding-standards/wpcs,$(composer config home)/vendor/phpcsstandards/phpcsutils,$(composer config home)/vendor/phpcsstandards/phpcsextra"
 if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "WordPressVIPMinimum" ]; then
     echo "Setting up VIPCS"
-    composer global require --dev automattic/vipwpcs:"*" -W
-    composer global require --dev sirbrillig/phpcs-variable-analysis:"*" -W
+    composer global require --dev automattic/vipwpcs:"*"
+    composer global require --dev sirbrillig/phpcs-variable-analysis:"*"
     echo "Installed coding standards (BEFORE):"
     phpcs -i
     
@@ -123,11 +123,11 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
     phpcs -i
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
-    composer global require --dev 10up/phpcs-composer:"^3.0" -W
-    composer global require --dev phpcompatibility/phpcompatibility-wp:"*" -W
-    composer global require --dev phpcompatibility/phpcompatibility-paragonie:"*" -W
-    composer global require --dev automattic/vipwpcs:"*" -W
-    composer global require --dev sirbrillig/phpcs-variable-analysis:"*" -W
+    composer global require --dev 10up/phpcs-composer:"^3.0"
+    composer global require --dev phpcompatibility/phpcompatibility-wp:"*"
+    composer global require --dev phpcompatibility/phpcompatibility-paragonie:"*"
+    composer global require --dev automattic/vipwpcs:"*"
+    composer global require --dev sirbrillig/phpcs-variable-analysis:"*"
 
     echo "Installed coding standards (BEFORE):"
     phpcs -i
