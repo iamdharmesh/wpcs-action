@@ -113,8 +113,13 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
     echo "Setting up VIPCS"
     composer require --dev automattic/vipwpcs:"*" -W
     composer require --dev sirbrillig/phpcs-variable-analysis:"*" -W
+    echo "Installed coding standards (BEFORE):"
+    phpcs -i
 
     decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis"
+
+    echo "Installed coding standards:"
+    phpcs -i
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
     composer require --dev 10up/phpcs-composer:"^3.0" -W
@@ -123,7 +128,9 @@ elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     composer require --dev automattic/vipwpcs:"*" -W
     composer require --dev sirbrillig/phpcs-variable-analysis:"*" -W
 
-    decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/10up/phpcs-composer,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-wp,${COMPOSER_HOME}/phpcompatibility/phpcompatibility,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-paragonie,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-paragonie,${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis"
+    echo "Installed coding standards (BEFORE):"
+    phpcs -i
+    decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/10up/phpcs-composer,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-wp,${COMPOSER_HOME}/phpcompatibility/phpcompatibility,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-paragonie,${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis"
 
     # Add the phpcs -i command to list installed standards
     echo "Installed coding standards:"
