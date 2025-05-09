@@ -9,8 +9,11 @@ if ! [ -x "$(command -v composer)" ]; then
   mv composer.phar /usr/local/bin/composer
 fi
 
+composer global remove --dev dealerdirect/phpcodesniffer-composer-installer higidi/composer-phpcodesniffer-standards-plugin squizlabs/PHP_codesniffer
 composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-all-dependencies
+composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
+# composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+# composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-all-dependencies
 
 git config --global --add safe.directory $(pwd)
 
