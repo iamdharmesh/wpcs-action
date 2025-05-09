@@ -111,8 +111,8 @@ COMPOSER_HOME="$(composer config home)/vendor"
 WPCS_PATH="$(composer config home)/vendor/wp-coding-standards/wpcs,$(composer config home)/vendor/phpcsstandards/phpcsutils,$(composer config home)/vendor/phpcsstandards/phpcsextra"
 if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "WordPressVIPMinimum" ]; then
     echo "Setting up VIPCS"
-    composer require --dev automattic/vipwpcs:"*" -W
-    composer require --dev sirbrillig/phpcs-variable-analysis:"*" -W
+    composer global require --dev automattic/vipwpcs:"*" -W
+    composer global require --dev sirbrillig/phpcs-variable-analysis:"*" -W
     echo "Installed coding standards (BEFORE):"
     phpcs -i
     
@@ -123,15 +123,15 @@ if [ "${INPUT_STANDARD}" = "WordPress-VIP-Go" ] || [ "${INPUT_STANDARD}" = "Word
     phpcs -i
 elif [ "${INPUT_STANDARD}" = "10up-Default" ]; then
     echo "Setting up 10up-Default"
-    composer require --dev 10up/phpcs-composer:"^3.0" -W
-    composer require --dev phpcompatibility/phpcompatibility-wp:"*" -W
-    composer require --dev phpcompatibility/phpcompatibility-paragonie:"*" -W
-    composer require --dev automattic/vipwpcs:"*" -W
-    composer require --dev sirbrillig/phpcs-variable-analysis:"*" -W
+    composer global require --dev 10up/phpcs-composer:"^3.0" -W
+    composer global require --dev phpcompatibility/phpcompatibility-wp:"*" -W
+    composer global require --dev phpcompatibility/phpcompatibility-paragonie:"*" -W
+    composer global require --dev automattic/vipwpcs:"*" -W
+    composer global require --dev sirbrillig/phpcs-variable-analysis:"*" -W
 
     echo "Installed coding standards (BEFORE):"
     phpcs -i
-    echo "${WPCS_PATH},${COMPOSER_HOME}/10up/phpcs-composer,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-wp,${COMPOSER_HOME}/phpcompatibility/phpcompatibility,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-paragonie,${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis";
+    echo "${WPCS_PATH},${COMPOSER_HOME}/10up/phpcs-composer,${COMPOSER_HOME}/phpcompatibility/php-compatibility,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-wp,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-paragonie,${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis";
     decide_all_files_or_changed "${WPCS_PATH},${COMPOSER_HOME}/10up/phpcs-composer,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-wp,${COMPOSER_HOME}/phpcompatibility/phpcompatibility,${COMPOSER_HOME}/phpcompatibility/phpcompatibility-paragonie,${COMPOSER_HOME}/automattic/vipwpcs,${COMPOSER_HOME}/sirbrillig/phpcs-variable-analysis"
 
     # Add the phpcs -i command to list installed standards
