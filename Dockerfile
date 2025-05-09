@@ -31,7 +31,7 @@ RUN set -eux \
 # Install Default PHPCS standards
 RUN composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 RUN composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
-RUN composer global require --dev 10up/phpcs-composer:"^9.3"
+RUN composer global require --dev 10up/phpcs-composer:"^9.3" -W
 
 COPY entrypoint.sh \
      problem-matcher.json \
