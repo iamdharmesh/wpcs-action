@@ -186,7 +186,7 @@ if [ "${HAS_CONFIG}" = true ] && [ "${INPUT_USE_LOCAL_CONFIG}" = "true" ] ; then
       ls -la
       which phpcs
       pwd
-      ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle ${INPUT_EXTRA_ARGS} ${GITHUB_WORKSPACE}
+      ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} -vv --report=checkstyle ${INPUT_EXTRA_ARGS} ${GITHUB_WORKSPACE}
       status=$?
   fi
 else
