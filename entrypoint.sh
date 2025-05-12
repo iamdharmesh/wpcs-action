@@ -9,6 +9,8 @@ ls -la
 
 # Save the original working directory
 ORIGINAL_DIR=$(pwd)
+echo "$ORIGINAL_DIR"
+echo "$GITHUB_WORKSPACE"
 
 composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
