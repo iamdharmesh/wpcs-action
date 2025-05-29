@@ -4,10 +4,7 @@ cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
 git config --global --add safe.directory $(pwd)
 
-PWD=$(pwd)
-cd "$(composer config home)/vendor"
 ls -la
-cd "$PWD"
 
 
 # Save the original working directory
@@ -15,9 +12,9 @@ ORIGINAL_DIR=$(pwd)
 echo "$ORIGINAL_DIR"
 echo "$GITHUB_WORKSPACE"
 
-# composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-# composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
-# composer global require --dev 10up/phpcs-composer:"^3.0"
+composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
+composer global require --dev 10up/phpcs-composer:"^3.0"
 
 # Reset to the original working directory
 cd "$ORIGINAL_DIR"
@@ -174,6 +171,10 @@ else
     HAS_CONFIG=false
 fi
 
+ls -la
+echo "HAS CONFIG: ${HAS_CONFIG}"
+echo "INPUT_USE_LOCAL_CONFIG: ${INPUT_USE_LOCAL_CONFIG}"
+
 if [ "${HAS_CONFIG}" = true ] && [ "${INPUT_USE_LOCAL_CONFIG}" = "true" ] ; then
   if [ "${INPUT_ONLY_CHANGED_FILES}" = "true" ]; then
       if [ "${INPUT_ONLY_CHANGED_LINES}" = "true" ]; then
@@ -189,7 +190,7 @@ if [ "${HAS_CONFIG}" = true ] && [ "${INPUT_USE_LOCAL_CONFIG}" = "true" ] ; then
       ls -la
       which phpcs
       pwd
-      ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle ${INPUT_EXTRA_ARGS} --standard="$GITHUB_WORKSPACE/phpcs.xml"
+      ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle ${INPUT_EXTRA_ARGS}
       status=$?
   fi
 else
