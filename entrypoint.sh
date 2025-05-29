@@ -196,6 +196,8 @@ if [ "${HAS_CONFIG}" = true ] && [ "${INPUT_USE_LOCAL_CONFIG}" = "true" ] ; then
 else
   if [ "${INPUT_ONLY_CHANGED_FILES}" = "true" ]; then
     if [ "${INPUT_ONLY_CHANGED_LINES}" = "true" ]; then
+      echo "TEST: $(clean_diff_output)"
+    
       set +e
       echo "${CHANGED_FILES}" | xargs -rt ${INPUT_PHPCS_BIN_PATH} ${WARNING_FLAG} --report=checkstyle --standard=${INPUT_STANDARD} --extensions=php ${INPUT_EXTRA_ARGS} ${GITHUB_WORKSPACE} | filter_by_changed_lines "$(clean_diff_output)"
       status=$?
