@@ -4,7 +4,10 @@ cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
 git config --global --add safe.directory $(pwd)
 
+PWD=$(pwd)
+cd "$(composer config home)/vendor"
 ls -la
+cd "$PWD"
 
 
 # Save the original working directory
