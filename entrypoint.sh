@@ -12,9 +12,9 @@ ORIGINAL_DIR=$(pwd)
 echo "$ORIGINAL_DIR"
 echo "$GITHUB_WORKSPACE"
 
-composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
-composer global require --dev 10up/phpcs-composer:"^3.0"
+# composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+# composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
+# composer global require --dev 10up/phpcs-composer:"^3.0"
 
 # Reset to the original working directory
 cd "$ORIGINAL_DIR"
