@@ -27,9 +27,11 @@ RUN set -eux \
 RUN set -eux \
 	&& curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer \
 	&& composer --version
- 	&& composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
-  	&& composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
-   	&& composer global require --dev 10up/phpcs-composer:"^3.0"
+
+# Install PHPCS standards
+RUN composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+RUN composer global require --dev wp-coding-standards/wpcs:"^3.1.0" --update-with-dependencies
+RUN composer global require --dev 10up/phpcs-composer:"^3.0"
 
 COPY entrypoint.sh \
      problem-matcher.json \
